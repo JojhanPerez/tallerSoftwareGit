@@ -6,9 +6,13 @@ public class ProcesoInscripciones {
 
     private HashMap<String, Estudiante> estudiantes;
     private LectorArchivo lector;
-    
-    public List<String> procesarArchivo(String ruta) {
-        return null;
+
+    public List<String> procesarArchivo(String ruta) throws Exception {
+        List<String> datosEstudiantes = lector.leer(ruta);
+        for (String dato : datosEstudiantes) {
+            procesarLinea(dato);
+        }
+        return datosEstudiantes;
     }
 
     private void procesarLinea(String linea) throws Exception {
@@ -27,15 +31,14 @@ public class ProcesoInscripciones {
             }
         }
 
-
     }
 
     private Estudiante buscarEstudiante(String cedula) {
 
-        for (Estudiante estudiante: estudiantes.values()) {
+        for (Estudiante estudiante : estudiantes.values()) {
             estudiante.getCedula().equals(cedula);
             return estudiante;
-        } 
+        }
 
         return null;
 
