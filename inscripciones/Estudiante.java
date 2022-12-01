@@ -10,6 +10,10 @@ public class Estudiante {
         this.nombre = nombre;
     }
 
+    public String getCedula() {
+        return cedula;
+    }
+
     public boolean adicionarMateria(String codigoMateria) {
 
         if (codigoMateria != null) {
